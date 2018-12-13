@@ -4,21 +4,24 @@ import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
 
-import br.com.juliogriebeler.moviesearcher.model.Title;
+import br.com.juliogriebeler.moviesearcher.model.TitleBasic;
 
+/**
+ * @author Julio
+ *
+ */
 public interface TitleService {
 
+	TitleBasic save(TitleBasic book);
 
-    Title save(Title book);
+	void delete(TitleBasic book);
 
-    void delete(Title book);
+	TitleBasic findOne(String id);
 
-    Title findOne(String id);
+	Iterable<TitleBasic> findAll();
 
-    Iterable<Title> findAll();
+	List<TitleBasic> findByAuthor(String author, PageRequest pageRequest);
 
-    List<Title> findByAuthor(String author, PageRequest pageRequest);
-
-    List<Title> findByTitle(String title);
+	List<TitleBasic> findByTitle(String title);
 
 }

@@ -1,4 +1,4 @@
-package br.com.juliogriebeler.movieevaluator;
+package br.com.juliogriebeler.moviesearcher;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MovieEvaluatorAppApplicationTests {
+public class MovieSearcherAppTests {
 
 	@Test
 	public void contextLoads() {

@@ -1,45 +1,77 @@
 package br.com.juliogriebeler.moviesearcher.batch;
 
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.LineMapper;
+import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
+import org.springframework.batch.item.file.mapping.DefaultLineMapper;
+import org.springframework.batch.item.file.mapping.FieldSetMapper;
+import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.batch.item.file.transform.LineTokenizer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+
+import br.com.juliogriebeler.moviesearcher.model.TitleBasic;
 
 @Configuration
-public class FileReaderConfig {}
+public class FileReaderConfig {
 
-//	@Bean
-//	ItemReader<TitleDTO> csvFileItemReader() {
-//		FlatFileItemReader<TitleDTO> csvFileReader = new FlatFileItemReader<>();
-//		csvFileReader.setResource(new ClassPathResource("data/students.csv"));
-//		csvFileReader.setLinesToSkip(1);
-//
-//		LineMapper<TitleDTO> studentLineMapper = createStudentLineMapper();
-//		csvFileReader.setLineMapper(studentLineMapper);
-//
-//		return csvFileReader;
-//	}
-//
-//	private LineMapper<TitleDTO> createStudentLineMapper() {
-//		DefaultLineMapper<TitleDTO> studentLineMapper = new DefaultLineMapper<>();
-//
-//		LineTokenizer studentLineTokenizer = createStudentLineTokenizer();
-//		studentLineMapper.setLineTokenizer(studentLineTokenizer);
-//
-//		FieldSetMapper<TitleDTO> studentInformationMapper = createStudentInformationMapper();
-//		studentLineMapper.setFieldSetMapper(studentInformationMapper);
-//
-//		return studentLineMapper;
-//	}
-//
-//	private LineTokenizer createStudentLineTokenizer() {
-//		DelimitedLineTokenizer studentLineTokenizer = new DelimitedLineTokenizer();
-//		studentLineTokenizer.setDelimiter(";");
-//		studentLineTokenizer.setNames(new String[] { "name", "emailAddress", "purchasedPackage" });
-//		return studentLineTokenizer;
-//	}
-//
-//	private FieldSetMapper<TitleDTO> createStudentInformationMapper() {
-//		BeanWrapperFieldSetMapper<TitleDTO> studentInformationMapper = new BeanWrapperFieldSetMapper<>();
-//		studentInformationMapper.setTargetType(TitleDTO.class);
-//		return studentInformationMapper;
-//	}
-//
-//}
+	@Bean
+	ItemReader<TitleBasic> csvFileItemReader() {
+		FlatFileItemReader<TitleBasic> tsvReader = new FlatFileItemReader<>();
+		try {
+			System.out.println(1);
+			tsvReader.setResource(new ClassPathResource("C:\\Users\\jfgriebeler\\Downloads\\data.tsv"));
+			System.out.println(2);
+			tsvReader.setLinesToSkip(1);
+			System.out.println(3);
+			LineMapper<TitleBasic> titleLineMapper = createTitleLineMapper();
+			System.out.println(4 + " - " + titleLineMapper );
+			tsvReader.setLineMapper(titleLineMapper);
+			System.out.println(5);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return tsvReader;
+	}
+
+	private LineMapper<TitleBasic> createTitleLineMapper() {
+		System.out.println(1.1);
+		DefaultLineMapper<TitleBasic> titleLineMapper = new DefaultLineMapper<>();
+		System.out.println(1.2);
+
+		LineTokenizer titleLineTokenizer = createTitleLineTokenizer();
+		System.out.println(1.3);
+		titleLineMapper.setLineTokenizer(titleLineTokenizer);
+		System.out.println(1.4);
+
+		FieldSetMapper<TitleBasic> titleInformationMapper = createTitleInformationMapper();
+		System.out.println(1.5);
+		titleLineMapper.setFieldSetMapper(titleInformationMapper);
+		System.out.println(1.6);
+
+		return titleLineMapper;
+	}
+
+	private LineTokenizer createTitleLineTokenizer() {
+		System.out.println(2.1);
+		DelimitedLineTokenizer titleLineTokenizer = new DelimitedLineTokenizer();
+		System.out.println(2.2);
+		titleLineTokenizer.setDelimiter("\t");
+		System.out.println(2.3);
+		titleLineTokenizer.setNames(new String[] { "name", "emailAddress", "purchasedPackage" });
+		System.out.println(2.4);
+		return titleLineTokenizer;
+	}
+
+	private FieldSetMapper<TitleBasic> createTitleInformationMapper() {
+		System.out.println(3);
+		BeanWrapperFieldSetMapper<TitleBasic> titleInformationMapper = new BeanWrapperFieldSetMapper<>();
+		System.out.println(3.1);
+		titleInformationMapper.setTargetType(TitleBasic.class);
+		System.out.println(3.2);
+		return titleInformationMapper;
+	}
+}
