@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
 
-import br.com.juliogriebeler.moviesearcher.model.TitleBasic;
+import br.com.juliogriebeler.moviesearcher.data.model.TitleBasic;
 
 /**
  * @author Julio

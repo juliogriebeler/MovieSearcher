@@ -1,4 +1,4 @@
-package br.com.juliogriebeler.moviesearcher.config;
+package br.com.juliogriebeler.moviesearcher.elasticsearch.config;
 
 import java.net.InetAddress;
 

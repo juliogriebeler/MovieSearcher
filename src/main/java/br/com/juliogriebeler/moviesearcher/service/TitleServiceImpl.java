@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import br.com.juliogriebeler.moviesearcher.model.TitleBasic;
-import br.com.juliogriebeler.moviesearcher.repository.TitleRepository;
+import br.com.juliogriebeler.moviesearcher.data.model.TitleBasic;
+import br.com.juliogriebeler.moviesearcher.data.repository.TitleRepository;
 
 /**
  * @author Julio

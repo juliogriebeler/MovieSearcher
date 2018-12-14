@@ -1,4 +1,4 @@
-package br.com.juliogriebeler.moviesearcher.batch;
+package br.com.juliogriebeler.moviesearcher.batch.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ public class FileReaderConfigTests {
 	
 	@Test
 	public void csvFileItemReaderTest() {
-		fileReaderConfig.csvFileItemReader();
+		fileReaderConfig.tsvFileItemReader();
 	}
 
 }

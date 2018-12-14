@@ -1,4 +1,4 @@
-package br.com.juliogriebeler.moviesearcher.enums;
+package br.com.juliogriebeler.moviesearcher.data.enums;
 
 public enum FilePathsEnum {
 	

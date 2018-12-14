@@ -1,13 +1,13 @@
 /**
  * 
  */
-package br.com.juliogriebeler.moviesearcher.repository;
+package br.com.juliogriebeler.moviesearcher.data.repository;
 
 import java.util.List;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-import br.com.juliogriebeler.moviesearcher.model.TitleBasic;
+import br.com.juliogriebeler.moviesearcher.data.model.TitleBasic;
 
 /**
  * @author Julio

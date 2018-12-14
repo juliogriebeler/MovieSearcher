@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.juliogriebeler.moviesearcher.model;
+package br.com.juliogriebeler.moviesearcher.data.model;
 
 import org.springframework.data.annotation.Id;
 

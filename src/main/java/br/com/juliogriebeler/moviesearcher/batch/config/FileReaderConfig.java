@@ -1,4 +1,4 @@
-package br.com.juliogriebeler.moviesearcher.batch;
+package br.com.juliogriebeler.moviesearcher.batch.config;
 
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.file.FlatFileItemReader;
@@ -12,13 +12,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-import br.com.juliogriebeler.moviesearcher.model.TitleBasic;
+import br.com.juliogriebeler.moviesearcher.data.model.TitleBasic;
 
 @Configuration
 public class FileReaderConfig {
 
 	@Bean
-	ItemReader<TitleBasic> csvFileItemReader() {
+	ItemReader<TitleBasic> tsvFileItemReader() {
 		FlatFileItemReader<TitleBasic> tsvReader = new FlatFileItemReader<>();
 		try {
 			System.out.println(1);

@@ -1,5 +1,5 @@
 
-package br.com.juliogriebeler.moviesearcher.model;
+package br.com.juliogriebeler.moviesearcher.data.model;
 
 import java.util.List;
 
